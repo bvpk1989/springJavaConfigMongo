@@ -62,11 +62,7 @@
 </div>
 
 <div class="container">
-	<footer>
-		<p>
-			&copy; <a href="http://www.mkyong.com">Mkyong.com</a> 2015
-		</p>
-	</footer>
+	
 </div>
 
 <script>
@@ -88,7 +84,7 @@
 
 	function searchViaAjax() {
 
-		var search = {}
+		var search = {};
 		search["username"] = $("#username").val();
 		search["email"] = $("#email").val();
 
@@ -102,6 +98,7 @@
 			success : function(data) {
 				console.log("SUCCESS: ", data);
 				display(data);
+				console.log("${home}");
 			},
 			error : function(e) {
 				console.log("ERROR: ", e);
@@ -109,6 +106,7 @@
 			},
 			done : function(e) {
 				console.log("DONE");
+				console.log("${home}");
 				enableSearchButton(true);
 			}
 		});

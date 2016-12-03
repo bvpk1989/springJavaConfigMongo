@@ -1,75 +1,52 @@
 package com.mkyong.web.model;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.mkyong.web.jsonview.Views;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class User {
 
-	@JsonView(Views.Public.class)
-	String username;
-	String password;
-	@JsonView(Views.Public.class)
-	String email;
-	@JsonView(Views.Public.class)
-	String phone;
-	String address;
+	 @Id
+	    public String id;
 
-	public User() {
-	}
+	    public String firstName;
+	    public String getId() {
+			return id;
+		}
 
-	public User(String username, String password, String email, String phone, String address) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.phone = phone;
-		this.address = address;
-	}
+		public void setId(String id) {
+			this.id = id;
+		}
 
-	public String getUsername() {
-		return username;
-	}
+		public String getFirstName() {
+			return firstName;
+		}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
 
-	public String getPassword() {
-		return password;
-	}
+		public String getLastName() {
+			return lastName;
+		}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
 
-	public String getEmail() {
-		return email;
-	}
+		public String lastName;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	    public User() {}
 
-	public String getPhone() {
-		return phone;
-	}
+	    public User(String firstName, String lastName) {
+	        this.firstName = firstName;
+	        this.lastName = lastName;
+	    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	@Override
-	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone
-				+ ", address=" + address + "]";
-	}
-
+	    @Override
+	    public String toString() {
+	        return String.format(
+	                "User[id=%s, firstName='%s', lastName='%s']",
+	                id, firstName, lastName);
+	    }
 }
